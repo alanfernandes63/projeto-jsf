@@ -1,0 +1,4 @@
+Foi implementado uma página web utilizando maven, jsf, bootstrap 4, primefaces que satisfazem o item 1: A, F, G.
+Esta página realiza o crude de um usuário e também apresenta uma lista de ussuários.contendo nome cidade e id.
+obs: este ainda não possui persitência. O formulário foi implementada com bootstrap 4, e a tabela foi implementada
+com primefaces.

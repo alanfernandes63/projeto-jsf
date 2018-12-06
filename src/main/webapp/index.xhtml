@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui">
+      
+    <h:head>
+		<h:outputStylesheet library="css" name="bootstrap.css"/>
+		<h:outputStylesheet library="css" name="bootstrap-grid.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"></link>
+    </h:head>
+	<h:body>
+		<h:form>
+			<div class="containe" style="text-align: center">
+				<h2>Cadastro de Usuários</h2>
+			</div>
+			<div class="container card">
+				<h4>Nome:</h4>
+				<h:inputText value="#{controladorPrincipal.nome}" class="form-control col-5"/>
+				<h4>Cidade:</h4>
+				<h:inputText value="#{controladorPrincipal.cidade}" class="form-control col-3"/>
+				<div class="row">
+					<div class="col">
+						<br/>
+						<h:panelGrid columns="2">
+							<h:commandButton action="#{controladorPrincipal.cadastrarUsuario()}" value="Salvar" class="btn btn-primary"/>
+								<h:column>
+    								<h:commandButton value="Cancelar" action="#{clienteBean}" class="btn btn-danger" immediate="true"/>
+    						</h:column>        
+						</h:panelGrid>
+					</div>
+				</div>
+			</div>
+	
+		</h:form>
+		<h3 align="center">Lista de Usuários</h3>
+		<p:dataTable value="#{controladorPrincipal.usuarios}" var="usuario" emptyMessage="Não há Registros">
+			<p:column headerText="Id">
+			<h:outputText value="#{usuario.id}" />
+			</p:column>
+			<p:column headerText="Nome">
+				<h:outputText value="#{usuario.nome}"/>
+			</p:column>
+			<p:column headerText="Cidade">
+				<h:outputText value="#{usuario.cidade}"/>
+			</p:column>
+			<p:column>
+			<h:form>
+			<h:commandButton action="#{controladorPrincipal.atualizarUsuario(usuario)}" value="Atualizar" class="btn btn-primary"/>
+			<h:commandButton action="#{controladorPrincipal.deletarUsuario(usuario)}" value="Deletar" class="btn btn-danger"/>
+			</h:form>
+			</p:column>
+		</p:dataTable>
+	</h:body>
+</html>
